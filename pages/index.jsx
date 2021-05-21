@@ -1,11 +1,19 @@
-import Head from "next/head";
-import { fetchAllData } from "../utils/dataFetch";
+import Header from "../components/Header";
+import Main from "../components/Main";
+import Projects from "../components/Projects";
 import PostCard from "../components/post-card";
+import Footer from "../components/Footer";
+import { fetchAllData } from "../utils/dataFetch";
 
 export default function Home({ posts }) {
-  return posts.map((post) => {
-    return <PostCard post={post} key={post.id} />;
-  });
+  return (
+    <>
+      <Header />
+      <Main />
+      <Projects posts={posts} />
+      <Footer />
+    </>
+  );
 }
 
 export const getStaticProps = async () => {

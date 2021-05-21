@@ -1,5 +1,266 @@
-// $background-color: #a34141;
+// Colours
+$onyx: #39393a;
+$spanish-blue: #1c77c3;
+$max-blue: #40bcd8;
+$med-champagne: #efe4b2;
+$silk: #fad7c7;
 
-// body {
-//   background-color: $background-color;
-// }
+// Fonts
+$lato: "Lato", sans-serif;
+$monda: "Monda", sans-serif;
+
+// Grid setup
+$columns: repeat(9, 1fr);
+$gap: 20px;
+
+body {
+  overflow-x: hidden;
+}
+
+.gradient-border-line {
+  height: 5px;
+  width: 100vw;
+  background: linear-gradient(
+    90deg,
+    $med-champagne 0%,
+    $max-blue 50%,
+    $silk 100%
+  );
+}
+
+.header {
+  width: 100vw;
+
+  nav {
+    font-family: $monda;
+    display: grid;
+    grid-template-columns: $columns;
+    column-gap: $gap;
+
+    @media (min-width: 1400px) {
+      grid-template-columns: 3fr repeat(7, 1fr) 3fr;
+    }
+
+    p {
+      grid-column: 2/5;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+    }
+
+    div {
+      grid-column: 8/9;
+      height: 100%;
+      margin: auto 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $onyx;
+      cursor: pointer;
+      transition: border-bottom 150ms ease-in;
+      display: flex;
+      height: 100%;
+
+      font-size: 1.125rem;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        text-shadow: 2px 2px 5px $med-champagne;
+        border-bottom: 5px solid $med-champagne;
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: $columns;
+  grid-gap: $gap;
+  font-family: $lato;
+
+  @media (min-width: 1400px) {
+    grid-template-columns: 3fr repeat(7, 1fr) 3fr;
+  }
+
+  .top {
+    grid-column: 2/6;
+    border-left: 5px solid $spanish-blue;
+    padding: 30px;
+    position: relative;
+
+    h1 {
+      font-size: 2.25rem;
+      color: $spanish-blue;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 1.5rem;
+      padding: 30px 0;
+    }
+
+    p {
+      font-family: $monda;
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+  }
+
+  .image {
+    grid-column: 6/9;
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.projects {
+  background: linear-gradient(-135deg, $max-blue 60%, $spanish-blue 100%);
+  display: grid;
+  grid-template-columns: $columns;
+  grid-gap: $gap;
+  padding: 40px 0;
+  font-family: $lato;
+  font-weight: 400;
+  color: white;
+  border-radius: 5px;
+  width: 60vw;
+  margin: 50px auto;
+
+  @media (min-width: 1400px) {
+    grid-template-columns: 1fr repeat(7, 1fr) 1fr;
+  }
+
+  h2 {
+    font-size: 2rem;
+    padding-top: 20px;
+    text-shadow: 2 2 8px $onyx;
+  }
+
+  p {
+    font-size: 1rem;
+    padding-top: 20px;
+    line-height: 25px;
+  }
+
+  .date {
+    font-family: $monda;
+    font-size: 0.8rem;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .first-project {
+    grid-column: 2/9;
+
+    a {
+      display: flex;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h2 {
+      padding-top: 0;
+    }
+
+    img {
+      transition: all 800ms ease;
+    }
+
+    &:hover {
+      img {
+        box-shadow: 0 0 10px $onyx;
+      }
+
+      p {
+        text-decoration: underline;
+      }
+    }
+
+    .image {
+      flex: 1.5;
+
+      img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+      }
+    }
+
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      position: relative;
+      margin-left: 20px;
+
+      h2 {
+        margin-bottom: 10px;
+        flex: 1;
+      }
+
+      p {
+        flex: 5;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .other-projects {
+    grid-row: 2/3;
+    grid-column: 2/9;
+    cursor: pointer;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 10px;
+
+    .other-project {
+      .text-wrapper {
+        h2,
+        p {
+          padding-top: 0;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        transition: all 800ms ease;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      &:hover {
+        img {
+          box-shadow: 0 0 10px $onyx;
+        }
+
+        p {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $monda;
+  font-size: 1rem;
+}
