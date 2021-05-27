@@ -2,7 +2,9 @@ const Footer = () => {
   return (
     <>
       <div className="gradient-border-line"></div>
-      <footer>© 2021 - Jamie Blaut</footer>
+      <footer data-testid="footer" id="footer">
+        © 2021 - Jamie Blaut
+      </footer>
     </>
   );
 };

@@ -5,6 +5,7 @@
       {
         "preset-env": {}
       }
-    ]
+    ],
+    "@babel/preset-typescript"
   ]
 }
