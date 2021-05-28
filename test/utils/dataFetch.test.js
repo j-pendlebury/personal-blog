@@ -1,5 +1,5 @@
-import { fetchAllData, getAllPaths, getStoryById } from "../utils/dataFetch";
-import { returnAllData, returnSingleStory } from "./helpers/ghostApiDataMock";
+import { fetchAllData, getAllPaths, getStoryById } from "../../utils/dataFetch";
+import { returnAllData, returnSingleStory } from "../helpers/ghostApiDataMock";
 import fetchMock from "fetch-mock";
 
 const setupMock = (mockData) => {
