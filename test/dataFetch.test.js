@@ -1,22 +1,41 @@
-import path from "path";
-import { fetchAllData, convert } from "../utils/dataFetch";
-import returnValue from "./helpers/ghostApiDataMock";
+import { fetchAllData, getAllPaths, getStoryById } from "../utils/dataFetch";
+import { returnAllData, returnSingleStory } from "./helpers/ghostApiDataMock";
 import fetchMock from "fetch-mock";
-import dotenv from "dotenv";
-dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
 
-const URL = process.env.GHOST_API_URL;
-const API_KEY = process.env.GHOST_API_KEY;
+const setupMock = (mockData) => {
+  return fetch.mockResponseOnce(JSON.stringify(mockData));
+};
 
-beforeEach(() => {
-  fetch.resetMocks();
+it("fetches all data correctly", async () => {
+  setupMock(returnAllData);
+  const data = await fetchAllData();
+
+  expect(data).toEqual(returnAllData.posts);
+  expect(fetch).toHaveBeenCalledTimes(1);
 });
 
-it("fetches data correctly", async () => {
-  fetch.mockResponseOnce(JSON.stringify(returnValue));
+it("gets all paths correctly", async () => {
+  setupMock(returnAllData);
+  const result = await getAllPaths();
+  const { posts } = returnAllData;
+  const routes = [];
 
-  const data = await fetchAllData(URL, API_KEY);
+  posts.forEach((post) => {
+    routes.push({
+      params: {
+        id: post.id,
+      },
+    });
+  });
 
-  expect(data).toEqual(returnValue.posts);
+  expect(result).toEqual(routes);
   expect(fetch).toHaveBeenCalledTimes(1);
+});
+
+it("gets correct data by ID", async () => {
+  setupMock(returnSingleStory);
+  const result = await getStoryById("1");
+
+  expect(fetch).toHaveBeenCalledTimes(1);
+  expect(result).toEqual(returnSingleStory);
 });

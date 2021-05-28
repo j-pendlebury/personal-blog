@@ -1,4 +1,4 @@
-const returnValue = {
+export const returnAllData = {
   posts: [
     {
       id: "1",
@@ -102,4 +102,40 @@ const returnValue = {
   ],
 };
 
-module.exports = returnValue;
+export const returnSingleStory = {
+  posts: [
+    {
+      id: "1",
+      uuid: "1",
+      title: "Welcome to Ghost",
+      slug: "welcome",
+      html: "<h1>Hello World 1</h1>",
+      comment_id: "1",
+      feature_image:
+        "https://static.ghost.org/v3.0.0/images/welcome-to-ghost.png",
+      featured: false,
+      visibility: "public",
+      send_email_when_published: false,
+      created_at: "2021-04-21T11:51:32.000+00:00",
+      updated_at: "2021-04-21T11:51:32.000+00:00",
+      published_at: "2021-04-21T11:51:37.000+00:00",
+      custom_excerpt: "Hello World 1",
+      codeinjection_head: null,
+      codeinjection_foot: null,
+      custom_template: null,
+      canonical_url: null,
+      url: "https://j4mie-ghost-cms.herokuapp.com/welcome/",
+      excerpt: "Hello World 1",
+      reading_time: 1,
+      og_image: null,
+      og_title: null,
+      og_description: null,
+      twitter_image: null,
+      twitter_title: null,
+      twitter_description: null,
+      meta_title: null,
+      meta_description: null,
+      email_subject: null,
+    },
+  ],
+};
