@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header test 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    <div
+      class="gradient-border-line"
+    />
+    <nav>
+      <p>
+        Jamie's Blog
+      </p>
+      <div>
+        <a
+          href="https://j4mie.me"
+        >
+          Portfolio
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
+`;

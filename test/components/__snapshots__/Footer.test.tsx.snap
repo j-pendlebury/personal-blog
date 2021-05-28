@@ -1,13 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`example 1`] = `
+exports[`Footer test 1`] = `
 <div>
   <div
     class="gradient-border-line"
   />
-  <footer
-    data-testid="footer"
-  >
+  <footer>
     © 2021 - Jamie Blaut
   </footer>
 </div>
