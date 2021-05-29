@@ -4,6 +4,7 @@ import MainProject from "../components/MainProject";
 import OtherProjects from "../components/OtherProjects";
 import Footer from "../components/Footer";
 import { fetchAllData } from "../utils/dataFetch";
+import envConfig from "../utils/envGetter";
 
 const Home = ({ posts }) => {
   return (
@@ -26,7 +27,7 @@ const Home = ({ posts }) => {
 };
 
 export const getStaticProps = async () => {
-  const posts = await fetchAllData();
+  const posts = await fetchAllData(envConfig);
 
   return {
     props: { posts },

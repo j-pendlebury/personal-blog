@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getStoryById, getAllPaths } from "../../utils/dataFetch";
+import envConfig from "../../utils/envGetter";
 
 const Post = ({ post }) => {
   return (
@@ -17,7 +18,7 @@ const createMarkup = (html) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const post = await getStoryById(params.id);
+  const post = await getStoryById(envConfig, params.id);
 
   return {
     props: {
@@ -27,7 +28,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const routes = await getAllPaths();
+  const routes = await getAllPaths(envConfig);
 
   return {
     paths: routes,
